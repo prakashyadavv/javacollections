@@ -1,0 +1,164 @@
+
+1. How to Print a Collection in Java?
+
+// Java program to demonstrate how to
+// Print a Collection
+import java.util.*;
+
+// Driver Class
+class GFG {
+      // Main Function
+    public static void main(String[] args)
+    {
+        String[] geeks
+            = { "Rahul", "Utkarsh", "Shubham", "Neelam" };
+
+        List<String> al = new ArrayList<String>();
+
+        // adding elements of array to arrayList.
+        Collections.addAll(al, geeks);
+
+        System.out.println(al);
+    }
+}
+
+Output
+[Rahul, Utkarsh, Shubham, Neelam]
+
+
+How to Make a Collection Read-Only in Java?
+
+// Java Program to make
+// Set Interface Object Read-Only
+
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Collections;
+
+// Driver Class
+class GFG {
+    // Main Function
+    public static void main(String[] args)
+    {
+        // Set of Integer
+        Set<Integer> numbers = new HashSet<Integer>();
+
+        // Set have 1 to 10 numbers
+        for (int i = 1; i <= 5; i++) {
+            numbers.add(i);
+        }
+
+        // print the integers
+        numbers.stream().forEach(System.out::print);
+
+        // Removing element from the list
+        numbers.remove(5);
+
+        System.out.println("\nAfter Performing Operation");
+
+        numbers.stream().forEach(System.out::print);
+
+        System.out.println(
+            "\nSet is also By Default Readable and Writable");
+
+        // Now making Read-Only Set
+        // Using unmodifiableSet() method.
+        try {
+            numbers = Collections.unmodifiableSet(numbers);
+
+            // This line will generate an Exception
+            numbers.remove(4);
+        }
+        catch (UnsupportedOperationException
+                unsupportedOperationException) {
+            System.out.println(
+                "Exceptions is "
+                + unsupportedOperationException);
+        }
+        finally {
+            System.out.println(numbers.contains(3));
+            System.out.println("Now Set is Read-Only");
+        }
+    }
+}
+
+
+Output
+12345
+After Performing Operation
+1234
+Set is also By Default Readable and Writable
+Exceptions is java.lang.UnsupportedOperationException
+true
+Now Set is Read-Only
+
+Java Program to Compare Elements in a Collection
+
+// Java Program to Compare Elements in a Collection 
+import java.io.*; 
+import java.util.*; 
+
+class GFG { 
+	public static void main(String[] args) 
+	{ 
+		// List initialization 
+		List<Integer> l = new ArrayList<>(); 
+
+		// Add elements in the list 
+		l.add(3); 
+		l.add(5); 
+		l.add(18); 
+		l.add(4); 
+		l.add(6); 
+
+		// Minimum in the list 
+		int minimum = Collections.min(l); 
+
+		// Maximum in the list 
+		int maximum = Collections.max(l); 
+
+		if (minimum == maximum) { 
+			System.out.println("All elements are equal"); 
+		} 
+		else { 
+			System.out.println("Min value of our list : "
+							+ minimum); 
+			System.out.println("Max value of our list : "
+							+ maximum); 
+		} 
+	} 
+}
+
+
+
+SIZE
+
+// Java program to demonstrate 
+// size() method of collection 
+
+import java.util.*; 
+
+public class Example1 { 
+	public static void main(String[] args) 
+	{ 
+
+		// Creating object of List<Integer> 
+		List<Integer> Array_List = new ArrayList<Integer>(); 
+
+		// add elements 
+		Array_List.add(1); 
+		Array_List.add(2); 
+		Array_List.add(3); 
+		Array_List.add(3); 
+
+		// getting total size of list 
+		// using size() method 
+		int size = Array_List.size(); 
+
+		// print the size of list 
+		System.out.println("Size of list = " + size); 
+
+		// print list 
+		System.out.println("Array_List = " + Array_List); 
+	} 
+}

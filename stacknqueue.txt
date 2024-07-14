@@ -1,0 +1,190 @@
+Sure! The Stack class in Java is part of the java.util package and represents a last-in-first-out (LIFO) stack of objects. Here are some commonly used methods of the Stack class:
+
+Basic Methods
+push(E item): Pushes an item onto the top of this stack.
+
+java
+Copy code
+Stack<String> stack = new Stack<>();
+stack.push("apple");
+stack.push("banana");
+
+pop(): Removes the object at the top of this stack and returns that object as the value of this function.
+java
+Copy code
+String top = stack.pop();
+
+peek(): Looks at the object at the top of this stack without removing it from the stack.
+java
+Copy code
+String top = stack.peek();
+
+empty(): Tests if this stack is empty.
+java
+Copy code
+boolean isEmpty = stack.empty();
+
+search(Object o): Returns the 1-based position from the top of the stack where the object is located; the return value -1 indicates that the object is not on the stack.
+java
+Copy code
+int position = stack.search("apple");
+Example Usage
+Here's a complete example demonstrating some of these methods:
+
+java
+Copy code
+import java.util.Stack;
+
+public class StackExample {
+    public static void main(String[] args) {
+        // Creating a Stack
+        Stack<String> stack = new Stack<>();
+        
+        // Pushing elements onto the stack
+        stack.push("apple");
+        stack.push("banana");
+        stack.push("cherry");
+        
+        // Accessing the top of the stack
+        System.out.println("Top of the stack: " + stack.peek());
+        
+        // Removing elements from the stack
+        System.out.println("Popped from the stack: " + stack.pop());
+        System.out.println("Popped from the stack: " + stack.pop());
+        
+        // Checking if the stack is empty
+        System.out.println("Is stack empty: " + stack.empty());
+        
+        // Searching for an element
+        stack.push("date");
+        stack.push("elderberry");
+        System.out.println("Position of 'date': " + stack.search("date"));
+        
+        // Iterating over the stack
+        System.out.println("Iterating over the stack:");
+        for (String item : stack) {
+            System.out.println(item);
+        }
+        
+        // Clearing the stack
+        stack.clear();
+        System.out.println("Stack after clear: " + stack);
+    }
+}
+Summary
+The Stack class in Java provides a set of methods to add, remove, and access elements following the LIFO principle.
+ It supports various operations from the Vector class and offers efficient methods for handling collections in stack-like scenarios. This makes Stack a versatile and powerful data structure in Java.
+
+
+
+queue
+
+Sure! The Queue interface in Java, part of the java.util package, is implemented by several classes, such as LinkedList, PriorityQueue, and ArrayDeque. Here are some commonly used methods of the Queue interface:
+
+Basic Methods
+add(E e): Inserts the specified element into this queue if it is possible to do so immediately without violating capacity restrictions, returning true upon success and throwing an IllegalStateException if no space is currently available.
+
+java
+Copy code
+Queue<String> queue = new LinkedList<>();
+queue.add("apple");
+queue.add("banana");
+
+offer(E e): Inserts the specified element into this queue if it is possible to do so immediately without violating capacity restrictions, returning true upon success and false if no space is currently available.
+java
+Copy code
+queue.offer("cherry");
+
+remove(): Retrieves and removes the head of this queue, throwing an NoSuchElementException if this queue is empty.
+java
+Copy code
+String head = queue.remove();
+
+poll(): Retrieves and removes the head of this queue, or returns null if this queue is empty.
+java
+Copy code
+String head = queue.poll();
+
+element(): Retrieves, but does not remove, the head of this queue, throwing an NoSuchElementException if this queue is empty.
+java
+Copy code
+String head = queue.element();
+
+peek(): Retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.
+java
+Copy code
+String head = queue.peek();
+Example Usage
+Here's a complete example demonstrating some of these methods:
+
+java
+Copy code
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class QueueExample {
+    public static void main(String[] args) {
+        // Creating a Queue
+        Queue<String> queue = new LinkedList<>();
+        
+        // Adding elements
+        queue.add("apple");
+        queue.offer("banana");
+        queue.add("cherry");
+        
+        // Accessing the head of the queue
+        System.out.println("Head of the queue: " + queue.element());
+        System.out.println("Head of the queue using peek: " + queue.peek());
+        
+        // Removing elements
+        System.out.println("Removed from the queue: " + queue.remove());
+        System.out.println("Removed from the queue using poll: " + queue.poll());
+        
+        // Iterating over the queue
+        System.out.println("Iterating over the queue:");
+        for (String item : queue) {
+            System.out.println(item);
+        }
+        
+        // Clearing the queue
+        queue.clear();
+        System.out.println("Queue after clear: " + queue);
+    }
+}
+Summary
+The Queue interface in Java provides a set of methods to add, remove, and access elements following the FIFO principle. It supports various operations from the Collection interface and offers efficient methods for handling collections in queue-like scenarios. This makes Queue a versatile and powerful data structure in Java.
+
+
+// Java Program demonstrating 
+// Queue Iteration 
+import java.util.Iterator; 
+import java.util.LinkedList; 
+import java.util.Queue; 
+
+// Driver Class 
+public class Gfg { 
+    // Main function 
+    public static void main(String[] args) { 
+        
+        // Iterating Queue 
+        Queue<Integer> studentQueue = new LinkedList<>(); 
+
+        // Inserting element in Queue 
+        studentQueue.add(1); 
+        studentQueue.add(3); 
+        studentQueue.add(8); 
+        studentQueue.add(14);         
+        studentQueue.add(9);         
+        studentQueue.add(3);         
+        
+        // Initialising Iterator 
+        Iterator<Integer> studentQueueIterator = studentQueue.iterator(); 
+        
+        // Iterating Queue 
+        while (studentQueueIterator.hasNext()) { 
+            Integer name = studentQueueIterator.next(); 
+            System.out.print(name+" "); 
+        } 
+    } 
+} 
+

@@ -1,0 +1,96 @@
+Certainly! The PriorityQueue class in Java, part of the java.util package, provides an unbounded priority queue based on a priority heap. Here are some commonly used methods of the PriorityQueue class:
+
+Basic Methods
+add(E e): Inserts the specified element into this priority queue.
+
+java
+Copy code
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+pq.add(5);
+pq.add(1);
+pq.add(3);
+offer(E e): Inserts the specified element into this priority queue.
+
+java
+Copy code
+pq.offer(2);
+remove(): Retrieves and removes the head of this queue, or throws an exception if this queue is empty.
+
+java
+Copy code
+int head = pq.remove();
+poll(): Retrieves and removes the head of this queue, or returns null if this queue is empty.
+
+java
+Copy code
+int head = pq.poll();
+peek(): Retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.
+
+java
+Copy code
+int head = pq.peek();
+element(): Retrieves, but does not remove, the head of this queue, or throws an exception if this queue is empty.
+
+java
+Copy code
+int head = pq.element();
+Example Usage
+Here's a complete example demonstrating some of these methods:
+
+java
+Copy code
+import java.util.PriorityQueue;
+
+public class PriorityQueueExample {
+    public static void main(String[] args) {
+        // Creating a PriorityQueue
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        
+        // Adding elements
+        pq.add(5);
+        pq.offer(1);
+        pq.add(3);
+        
+
+
+
+        // Accessing the head of the priority queue
+        System.out.println("Head of the priority queue: " + pq.peek());
+        
+        // Removing elements
+        System.out.println("Removed from the priority queue: " + pq.poll());
+        
+        // Iterating over the priority queue
+        System.out.println("Iterating over the priority queue:");
+        for (Integer item : pq) {
+            System.out.println(item);
+        }
+        
+        // Clearing the priority queue
+        pq.clear();
+        System.out.println("Priority queue after clear: " + pq);
+    }
+}
+Summary
+The PriorityQueue class in Java provides a priority queue based on a priority heap. Elements in a PriorityQueue are ordered according to their natural ordering or by a specified comparator. It supports various operations such as insertion, deletion, and access of elements based on their priority, making it suitable for applications where elements need to be processed in a specific order. This makes PriorityQueue a versatile and powerful data structure in Java.
+
+  public static void main(String[] args) 
+    { 
+        // Creating a PriorityQueue 
+        PriorityQueue PQ = new PriorityQueue<Integer>(); 
+  
+        // Inserting some elements 
+        PQ.add(6); 
+        PQ.add(4); 
+        PQ.add(55); 
+        PQ.add(1); 
+  
+        // Checking whether PQ is empty or not 
+        // by calling isEmpty() method on PQ 
+        System.out.println(PQ.isEmpty()); 
+    } 
+}
+
+
+
+

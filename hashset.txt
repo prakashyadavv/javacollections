@@ -1,0 +1,275 @@
+The HashSet class in Java, part of the java.util package, provides a way to store a collection of unique elements. It implements the Set interface, which is part of the Java Collections Framework. Here are some commonly used methods of HashSet:
+
+Basic Methods
+add(E e): Adds the specified element to this set if it is not already present.
+
+java
+Copy code
+HashSet<String> set = new HashSet<>();
+set.add("apple");
+set.add("banana");
+remove(Object o): Removes the specified element from this set if it is present.
+
+java
+Copy code
+set.remove("apple");
+clear(): Removes all of the elements from this set. The set will be empty after this call returns.
+
+java
+Copy code
+set.clear();
+contains(Object o): Returns true if this set contains the specified element.
+
+java
+Copy code
+boolean hasApple = set.contains("apple");
+isEmpty(): Returns true if this set contains no elements.
+
+java
+Copy code
+boolean isEmpty = set.isEmpty();
+size(): Returns the number of elements in this set.
+
+java
+Copy code
+int size = set.size();
+Advanced Methods
+addAll(Collection<? extends E> c): Adds all of the elements in the specified collection to this set if they're not already present.
+
+java
+Copy code
+HashSet<String> newSet = new HashSet<>();
+newSet.add("cherry");
+newSet.add("date");
+set.addAll(newSet);
+removeAll(Collection<?> c): Removes from this set all of its elements that are contained in the specified collection.
+
+java
+Copy code
+set.removeAll(newSet);
+retainAll(Collection<?> c): Retains only the elements in this set that are contained in the specified collection.
+
+java
+Copy code
+set.retainAll(newSet);
+containsAll(Collection<?> c): Returns true if this set contains all of the elements in the specified collection.
+
+java
+Copy code
+boolean hasAll = set.containsAll(newSet);
+toArray(): Returns an array containing all of the elements in this set.
+
+java
+Copy code
+Object[] array = set.toArray();
+toArray(T[] a): Returns an array containing all of the elements in this set; the runtime type of the returned array is that of the specified array.
+
+java
+Copy code
+String[] array = set.toArray(new String[0]);
+Iterating over HashSet
+You can iterate over the elements of a HashSet using different methods:
+
+Using for-each loop:
+
+java
+Copy code
+for (String item : set) {
+    System.out.println(item);
+}
+Using iterator():
+
+java
+Copy code
+Iterator<String> iterator = set.iterator();
+while (iterator.hasNext()) {
+    System.out.println(iterator.next());
+}
+Example Usage
+Here's a complete example demonstrating some of these methods:
+
+java
+Copy code
+import java.util.HashSet;
+import java.util.Iterator;
+
+public class HashSetExample {
+    public static void main(String[] args) {
+        // Creating a HashSet
+        HashSet<String> set = new HashSet<>();
+        
+        // Adding elements
+        set.add("apple");
+        set.add("banana");
+        set.add("cherry");
+        
+        // Checking size
+        System.out.println("Size of the set: " + set.size());
+        
+        // Checking if set contains an element
+        System.out.println("Set contains 'banana': " + set.contains("banana"));
+        
+        // Removing an element
+        set.remove("apple");
+        System.out.println("Set after removal: " + set);
+        
+        // Iterating over the set using for-each loop
+        System.out.println("Iterating over the set:");
+        for (String item : set) {
+            System.out.println(item);
+        }
+        
+        // Using iterator
+        System.out.println("Using iterator:");
+        Iterator<String> iterator = set.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+        
+        // Adding a collection of elements
+        HashSet<String> newSet = new HashSet<>();
+        newSet.add("date");
+        newSet.add("elderberry");
+        set.addAll(newSet);
+        System.out.println("Set after adding new elements: " + set);
+        
+        // Checking if set contains all elements of a collection
+        boolean containsAll = set.containsAll(newSet);
+        System.out.println("Set contains all elements of newSet: " + containsAll);
+        
+        // Retaining elements that are also in the specified collection
+        set.retainAll(newSet);
+        System.out.println("Set after retaining elements of newSet: " + set);
+        
+        // Clearing the set
+        set.clear();
+        System.out.println("Set after clear: " + set);
+    }
+}
+Summary
+HashSet in Java provides a wide range of methods to add, remove, access, and manipulate unique elements. 
+It supports various operations from the Set interface and offers efficient methods for handling sets of unique elements. 
+This makes HashSet a versatile and powerful data structure in Java.
+
+--------------------------------------------------------
+
+Initializing HashSet
+Initializing HashSet
+        // creating and initializing an array (of non 
+        // primitive type)
+        Integer arr[] = { 5, 6, 7, 8, 1, 2, 3, 4, 3 };
+ 
+        // Set demonstration using Collections.addAll
+        Set<Integer> set = Collections.<Integer> emptySet();
+        Collections.addAll(set =
+                    new HashSet<Integer>(Arrays.asList(arr)));
+ 
+        // initializing set using Collections.unmodifiable set
+        Set<Integer> set2 = 
+             Collections.unmodifiableSet(new HashSet<Integer>
+                                         (Arrays.asList(arr)));
+ 
+        // Duplicate elements are not printed in a set.
+        System.out.println(set);
+
+
+       // Create a set
+        Set<Integer> set = new HashSet<Integer>();
+ 
+        // Add some elements to the set
+        set.add(1);
+        set.add(2);
+        set.add(3);
+        set.add(4);
+        set.add(5);
+        set.add(6);
+        set.add(7);
+        set.add(8);
+ 
+        // Adding a duplicate element has no effect
+        set.add(3);
+        System.out.println(set);
+
+
+ Array to HashSet in Java
+
+   static Set<Integer> convert(int[] array)
+    {
+        // Hash Set Initialisation
+        Set<Integer> Set = new HashSet<>();
+ 
+        // Iteration using enhanced for loop
+        for (int element : array) {
+            Set.add(element);
+        }
+        // returning the set
+        return Set;
+    }
+ 
+    // Function to print the set
+    static void print(Set<Integer> Set)
+    {
+        // Implement to iterator the Set
+        Iterator<Integer> _iterator = Set.iterator();
+ 
+        // Iterate the elements of Set
+        while (_iterator.hasNext()) {
+            // print the element of the Set
+            System.out.print(_iterator.next() + " ");
+        }
+    }
+    public static void main(String[] args)
+ 
+    {
+ 
+        // Array taken for consideration
+        int array[] = { 1, 2, 3, 4, 5, 6 };
+ 
+        // Calling function to convert the array
+        Set<Integer> Set = convert(array);
+ 
+        // print the set
+        print(Set);
+
+
+
+
+printing
+
+   HashSet<Integer> hs = new HashSet<Integer>();
+        hs.add(5);
+        hs.add(2);
+        hs.add(3);
+        hs.add(6);
+        hs.add(null);
+ 
+        // print HashSet elements one by one.
+        // Insertion order in not preserved and it is based
+        // on hash code of objects.
+ 
+        // creates Iterator oblect.
+        Iterator itr = hs.iterator();
+ 
+        // check element is present or not. if not loop will
+        // break.
+        while (itr.hasNext()) {
+            System.out.println(itr.next());
+
+    HashSet<String> hs = new HashSet<String>();
+ 
+        // add element in HashSet object
+        hs.add("B");
+        hs.add("C");
+        hs.add("D");
+        hs.add("A");
+        hs.add("Z");
+        hs.add("null");
+        hs.add("10");
+ 
+        // print HashSet
+        // we don't know hash code,
+        // so we don't know order
+        // of insertion
+        System.out.println(hs);
+    }
+}

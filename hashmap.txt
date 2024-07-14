@@ -1,0 +1,408 @@
+The HashMap class in Java, part of the java.util package, provides a powerful and flexible way to store key-value pairs. Here are some commonly used methods of HashMap:
+
+Basic Methods
+put(K key, V value): Associates the specified value with the specified key in this map. If the map previously contained a mapping for the key, the old value is replaced.
+
+java
+Copy code
+HashMap<String, Integer> map = new HashMap<>();
+map.put("apple", 1);
+map.put("banana", 2);
+get(Object key): Returns the value to which the specified key is mapped, or null if this map contains no mapping for the key.
+
+java
+Copy code
+Integer value = map.get("apple");
+remove(Object key): Removes the mapping for a key from this map if it is present.
+
+java
+Copy code
+map.remove("apple");
+clear(): Removes all of the mappings from this map. The map will be empty after this call returns.
+
+java
+Copy code
+map.clear();
+containsKey(Object key): Returns true if this map contains a mapping for the specified key.
+
+java
+Copy code
+boolean hasApple = map.containsKey("apple");
+containsValue(Object value): Returns true if this map maps one or more keys to the specified value.
+
+java
+Copy code
+boolean hasValue1 = map.containsValue(1);
+isEmpty(): Returns true if this map contains no key-value mappings.
+
+java
+Copy code
+boolean isEmpty = map.isEmpty();
+size(): Returns the number of key-value mappings in this map.
+
+java
+Copy code
+int size = map.size();
+Advanced Methods
+putAll(Map<? extends K, ? extends V> m): Copies all of the mappings from the specified map to this map.
+
+java
+Copy code
+HashMap<String, Integer> newMap = new HashMap<>();
+newMap.put("cherry", 3);
+map.putAll(newMap);
+keySet(): Returns a Set view of the keys contained in this map.
+
+java
+Copy code
+Set<String> keys = map.keySet();
+values(): Returns a Collection view of the values contained in this map.
+
+java
+Copy code
+Collection<Integer> values = map.values();
+entrySet(): Returns a Set view of the mappings contained in this map.
+
+java
+Copy code
+Set<Map.Entry<String, Integer>> entries = map.entrySet();
+replace(K key, V value): Replaces the entry for the specified key only if it is currently mapped to some value.
+
+java
+Copy code
+map.replace("banana", 5);
+replace(K key, V oldValue, V newValue): Replaces the entry for the specified key only if currently mapped to the specified value.
+
+java
+Copy code
+map.replace("banana", 2, 5);
+compute(K key, BiFunction<? super K,? super V,? extends V> remappingFunction): Attempts to compute a mapping for the specified key and its current mapped value (or null if there is no current mapping).
+
+java
+Copy code
+map.compute("banana", (k, v) -> (v == null) ? 1 : v + 1);
+computeIfAbsent(K key, Function<? super K,? extends V> mappingFunction): If the specified key is not already associated with a value (or is mapped to null), attempts to compute its value using the given mapping function and enters it into this map unless null.
+
+java
+Copy code
+map.computeIfAbsent("pear", k -> 4);
+computeIfPresent(K key, BiFunction<? super K,? super V,? extends V> remappingFunction): If the value for the specified key is present and non-null, attempts to compute a new mapping given the key and its current mapped value.
+
+java
+Copy code
+map.computeIfPresent("banana", (k, v) -> v + 1);
+merge(K key, V value, BiFunction<? super V,? super V,? extends V> remappingFunction): If the specified key is not already associated with a value or is associated with null, associates it with the given non-null value. Otherwise, replaces the value with the results of the given remapping function.
+
+java
+Copy code
+map.merge("banana", 2, Integer::sum);
+Iterating over HashMap
+You can iterate over the entries of a HashMap using different methods:
+
+Using for-each loop with entrySet():
+
+java
+Copy code
+for (Map.Entry<String, Integer> entry : map.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+Using for-each loop with keySet():
+
+java
+Copy code
+for (String key : map.keySet()) {
+    System.out.println(key + ": " + map.get(key));
+}
+Using for-each loop with values():
+
+java
+Copy code
+for (Integer value : map.values()) {
+    System.out.println(value);
+}
+Using Iterator with entrySet():
+
+java
+Copy code
+Iterator<Map.Entry<String, Integer>> iterator = map.entrySet().iterator();
+while (iterator.hasNext()) {
+    Map.Entry<String, Integer> entry = iterator.next();
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+Example Usage
+Here's a complete example demonstrating some of these methods:
+
+java
+Copy code
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.Collection;
+
+public class HashMapExample {
+    public static void main(String[] args) {
+        // Creating a HashMap
+        HashMap<String, Integer> map = new HashMap<>();
+        
+        // Adding elements
+        map.put("apple", 1);
+        map.put("banana", 2);
+        map.put("cherry", 3);
+        
+        // Accessing elements
+        System.out.println("Value for 'apple': " + map.get("apple"));
+        
+        // Checking size
+        System.out.println("Size of the map: " + map.size());
+        
+        // Checking if map contains a key
+        System.out.println("Map contains 'banana': " + map.containsKey("banana"));
+        
+        // Checking if map contains a value
+        System.out.println("Map contains value 3: " + map.containsValue(3));
+        
+        // Removing an element
+        map.remove("apple");
+        System.out.println("Map after removal: " + map);
+        
+        // Iterating over the map using entrySet
+        System.out.println("Iterating over the map:");
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        
+        // Using compute method
+        map.compute("banana", (k, v) -> (v == null) ? 1 : v + 1);
+        System.out.println("Map after compute: " + map);
+        
+        // Using merge method
+        map.merge("cherry", 5, Integer::sum);
+        System.out.println("Map after merge: " + map);
+        
+        // Clearing the map
+        map.clear();
+        System.out.println("Map after clear: " + map);
+    }
+}
+Summary
+HashMap in Java provides a wide range of methods to add, remove, access, and manipulate key-value pairs. It supports various operations from both the Map interface and additional functionality for handling keys and values efficiently. This makes HashMap a versatile and powerful data structure in Java.
+
+
+
+
+
+
+
+------------------------------------------
+iterate
+      // Creating a HashMap
+        Map<String, String> foodTable
+            = new HashMap<String, String>();
+ 
+        // Inserting elements to the adobe HashMap
+        // Elements- Key value pairs using put() method
+        foodTable.put("A", "Angular");
+        foodTable.put("J", "Java");
+        foodTable.put("P", "Python");
+        foodTable.put("H", "Hibernate");
+ 
+        // Iterating HashMap through for loop
+        for (Map.Entry<String, String> set :
+             foodTable.entrySet()) {
+ 
+            // Printing all elements of a Map
+            System.out.println(set.getKey() + " = "
+                               + set.getValue());
+
+
+
+
+iterator
+   // Creating Hash map
+        Map<Integer, String> intType
+            = new HashMap<Integer, String>();
+ 
+        // Inserting data(Key-value pairs) in hashmap
+        intType.put(1, "First");
+        intType.put(2, "Second");
+        intType.put(3, "Third");
+        intType.put(4, "Fourth");
+ 
+        // Iterator
+        Iterator<Entry<Integer, String> > new_Iterator
+            = intType.entrySet().iterator();
+ 
+        // Iterating every set of entry in the HashMap
+        while (new_Iterator.hasNext()) {
+            Map.Entry<Integer, String> new_Map
+                = (Map.Entry<Integer, String>)
+                      new_Iterator.next();
+ 
+            // Displaying HashMap
+            System.out.println(new_Map.getKey() + " = "
+                               + new_Map.getValue());
+
+Check if a Key exists in a HashMap in Java?
+
+   try { 
+            // Create a HashMap 
+            HashMap<Integer, String> 
+                map = new HashMap<>(); 
+  
+            // Populate the HashMap 
+            map.put(1, "Geeks"); 
+            map.put(2, "ForGeeks"); 
+            map.put(null, "GeeksForGeeks"); 
+  
+            // Get the key to be removed 
+            int keyToBeChecked = 2; 
+  
+            // Print the initial HashMap 
+            System.out.println("HashMap: "
+                               + map); 
+  
+            // Get the iterator over the HashMap 
+            Iterator<Map.Entry<Integer, String> > 
+                iterator = map.entrySet().iterator(); 
+  
+            // flag to store result 
+            boolean isKeyPresent = false; 
+  
+            // Iterate over the HashMap 
+            while (iterator.hasNext()) { 
+  
+                // Get the entry at this iteration 
+                Map.Entry<Integer, String> 
+                    entry 
+                    = iterator.next(); 
+  
+                // Check if this key is the required key 
+                if (keyToBeChecked == entry.getKey()) { 
+  
+                    isKeyPresent = true; 
+                } 
+            } 
+  
+            // Print the result 
+            System.out.println("Does key "
+                               + keyToBeChecked 
+                               + " exists: "
+                               + isKeyPresent); 
+        } 
+        catch (Exception e) { 
+            System.out.println(e); 
+        } 
+
+
+Using HashMap.containsKey method(Efficient):
+Get the HashMap and the Key
+Check if the key exists in the HashMap or not using HashMap.containsKey() method. If the key exists, set the flag as true.
+The flag value, contains the result.
+
+      // Create a HashMap 
+        HashMap<Integer, String> 
+            map = new HashMap<>(); 
+  
+        // Populate the HashMap 
+        map.put(1, "Geeks"); 
+        map.put(2, "ForGeeks"); 
+        map.put(null, "GeeksForGeeks"); 
+  
+        // Get the key to be removed 
+        int keyToBeChecked = 2; 
+  
+        // Print the initial HashMap 
+        System.out.println("HashMap: "
+                           + map); 
+  
+        // Check is key exists in the Map 
+        boolean isKeyPresent = map.containsKey(keyToBeChecked); 
+  
+        // Print the result 
+        System.out.println("Does key "
+                           + keyToBeChecked 
+                           + " exists: "
+                           + isKeyPresent); 
+
+
+
+Copy One HashMap to Another HashMap in Java
+   Map<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("A", 1);
+        hashMap.put("B", 2);
+        hashMap.put("C", 3);
+         
+        // copyMap method would copy the original 
+        // hashMap to second_Map
+        Map<String, Integer> second_Map = copyMap(hashMap);
+
+
+
+   copyMap(Map<K, V> original)
+    {
+ 
+        Map<K, V> second_Map = new HashMap<>();
+ 
+        // Start the iteration and copy the Key and Value
+        // for each Map to the other Map.
+        for (Map.Entry<K, V> entry : original.entrySet()) {
+ 
+            // using put method to copy one Map to Other
+            second_Map.put(entry.getKey(),
+                           entry.getValue());
+        }
+ 
+        return second_Map;
+    }
+
+
+  copyMap(Map<K, V> original)
+    {
+ 
+        Map<K, V> second_map = new HashMap<>();
+ 
+        // using putAll method to copy from original Map to
+        // second_map
+        second_map.putAll(original);
+ 
+        return second_map;
+    }
+
+ public static <K, V> Map<K, V> copyMap(Map<K, V> original)
+    {
+       // constructor by passing original hashmap
+       // in the parameter returns the new hashmap 
+       // with the copied content of the original one
+        return new HashMap<>(original);
+    }
+
+
+      Map<String, Integer> hashMap = new HashMap<>();
+ 
+        hashMap.put("A", 1);
+        hashMap.put("B", 2);
+        hashMap.put("C", 3);
+         
+        // using assigning operator
+        // hashMap to second_Map
+        Map<String, Integer> second_map = hashMap;
+ 
+        System.out.println(second_map);
+
+
+
+Convert HashMap to TreeMap i
+
+
+  public static <K, V> Map<K, V> convertToTreeMap(Map<K, V> hashMap) 
+    { 
+        // Create a new TreeMap 
+        Map<K, V> treeMap = new TreeMap<>(); 
+   
+        // Pass the hashMap to putAll() method 
+        treeMap.putAll(hashMap); 
+   
+        // Return the TreeMap 
+        return treeMap; 
+    } 
+

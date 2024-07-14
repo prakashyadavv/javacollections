@@ -1,0 +1,583 @@
+The LinkedList class in Java is part of the java.util package and provides various methods to manipulate the elements stored in it. LinkedList implements the List and Deque interfaces, which means it can be used both as a list and a double-ended queue (deque). Here's a comprehensive list of some commonly used methods of LinkedList:
+
+Basic Methods
+
+add(E e): Appends the specified element to the end of this list.
+
+java
+Copy code
+LinkedList<String> list = new LinkedList<>();
+list.add("Hello");
+add(int index, E element): Inserts the specified element at the specified position in this list.
+
+java
+Copy code
+list.add(1, "World");
+get(int index): Returns the element at the specified position in this list.
+
+java
+Copy code
+String str = list.get(0);
+set(int index, E element): Replaces the element at the specified position in this list with the specified element.
+
+java
+Copy code
+list.set(1, "Java");
+remove(int index): Removes the element at the specified position in this list.
+
+java
+Copy code
+list.remove(0);
+remove(Object o): Removes the first occurrence of the specified element from this list, if it is present.
+
+java
+Copy code
+list.remove("Java");
+clear(): Removes all of the elements from this list.
+
+java
+Copy code
+list.clear();
+size(): Returns the number of elements in this list.
+
+java
+Copy code
+int size = list.size();
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Methods from Deque Interface
+addFirst(E e): Inserts the specified element at the beginning of this list.
+
+java
+Copy code
+list.addFirst("First");
+addLast(E e): Appends the specified element to the end of this list.
+
+java
+Copy code
+list.addLast("Last");
+removeFirst(): Removes and returns the first element from this list.
+
+java
+Copy code
+String first = list.removeFirst();
+removeLast(): Removes and returns the last element from this list.
+
+java
+Copy code
+String last = list.removeLast();
+getFirst(): Returns the first element in this list.
+
+java
+Copy code
+String firstElement = list.getFirst();
+getLast(): Returns the last element in this list.
+
+java
+Copy code
+String lastElement = list.getLast();
+offer(E e): Adds the specified element as the tail (last element) of this list.
+
+java
+Copy code
+list.offer("Offered");
+offerFirst(E e): Inserts the specified element at the front of this list.
+
+java
+Copy code
+list.offerFirst("Offered First");
+
+offerLast(E e): Inserts the specified element at the end of this list.
+java
+Copy code
+list.offerLast("Offered Last");
+
+poll(): Retrieves and removes the head (first element) of this list.
+java
+Copy code
+String polled = list.poll();
+
+pollFirst(): Retrieves and removes the first element of this list.
+java
+Copy code
+String polledFirst = list.pollFirst();
+
+pollLast(): Retrieves and removes the last element of this list.
+java
+Copy code
+String polledLast = list.pollLast();
+
+peek(): Retrieves, but does not remove, the head (first element) of this list.
+java
+Copy code
+String peeked = list.peek();
+peekFirst(): Retrieves, but does not remove, the first element of this list.
+
+java
+Copy code
+String peekedFirst = list.peekFirst();
+peekLast(): Retrieves, but does not remove, the last element of this list.
+
+java
+Copy code
+String peekedLast = list.peekLast();
+Advanced Methods
+contains(Object o): Returns true if this list contains the specified element.
+
+java
+Copy code
+boolean contains = list.contains("Hello");
+indexOf(Object o): Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
+
+java
+Copy code
+int index = list.indexOf("Hello");
+lastIndexOf(Object o): Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.
+
+java
+Copy code
+int lastIndex = list.lastIndexOf("Hello");
+isEmpty(): Returns true if this list contains no elements.
+
+java
+Copy code
+boolean isEmpty = list.isEmpty();
+toArray(): Returns an array containing all of the elements in this list in proper sequence (from first to last element).
+
+java
+Copy code
+Object[] array = list.toArray();
+toArray(T[] a): Returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.
+
+java
+Copy code
+String[] array = list.toArray(new String[0]);
+subList(int fromIndex, int toIndex): Returns a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive.
+
+java
+Copy code
+List<String> subList = list.subList(0, 2);
+addAll(Collection<? extends E> c): Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's iterator.
+
+java
+Copy code
+List<String> newElements = Arrays.asList("Element1", "Element2");
+list.addAll(newElements);
+addAll(int index, Collection<? extends E> c): Inserts all of the elements in the specified collection into this list, starting at the specified position.
+
+java
+Copy code
+list.addAll(1, newElements);
+retainAll(Collection<?> c): Retains only the elements in this list that are contained in the specified collection.
+
+java
+Copy code
+List<String> elementsToRetain = Arrays.asList("Hello", "World");
+list.retainAll(elementsToRetain);
+removeAll(Collection<?> c): Removes from this list all of its elements that are contained in the specified collection.
+
+java
+Copy code
+List<String> elementsToRemove = Arrays.asList("Hello", "World");
+list.removeAll(elementsToRemove);
+
+iterator(): Returns an iterator over the elements in this list in proper sequence.
+java
+Copy code
+Iterator<String> iterator = list.iterator();
+while (iterator.hasNext()) {
+    System.out.println(iterator.next());
+}
+listIterator(): Returns a list iterator over the elements in this list (in proper sequence).
+
+java
+Copy code
+ListIterator<String> listIterator = list.listIterator();
+while (listIterator.hasNext()) {
+    System.out.println(listIterator.next());
+}
+listIterator(int index): Returns a list iterator over the elements in this list (in proper sequence), starting at the specified position in the list.
+
+java
+Copy code
+ListIterator<String> listIteratorFromIndex = list.listIterator(1);
+while (listIteratorFromIndex.hasNext()) {
+    System.out.println(listIteratorFromIndex.next());
+}
+Example Usage
+Here's a complete example demonstrating some of these methods:
+
+java
+Copy code
+import java.util.LinkedList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Iterator;
+import java.util.ListIterator;
+
+public class LinkedListExample {
+    public static void main(String[] args) {
+        // Creating a LinkedList
+        LinkedList<String> list = new LinkedList<>();
+        
+        // Adding elements
+        list.add("Hello");
+        list.add("World");
+        list.add("Java");
+        
+        // Accessing elements
+        System.out.println("Element at index 1: " + list.get(1));
+        
+        // Modifying elements
+        list.set(1, "Programming");
+        System.out.println("Modified list: " + list);
+        
+        // Removing elements
+        list.remove("Java");
+        System.out.println("List after removal: " + list);
+        
+        // Checking size
+        System.out.println("Size of the list: " + list.size());
+        
+        // Checking if list contains an element
+        System.out.println("List contains 'Hello': " + list.contains("Hello"));
+        
+        // Adding elements at the beginning and end
+        list.addFirst("First");
+        list.addLast("Last");
+        System.out.println("List after adding first and last: " + list);
+        
+        // Removing first and last elements
+        list.removeFirst();
+        list.removeLast();
+        System.out.println("List after removing first and last: " + list);
+        
+        // Converting to array
+        String[] array = list.toArray(new String[0]);
+        System.out.println("Array: " + Arrays.toString(array));
+        
+        // Adding a collection of elements
+        List<String> newElements = Arrays.asList("Element1", "Element2");
+        list.addAll(newElements);
+        System.out.println("List after adding new elements: " + list);
+        
+        // Iterating over the list
+        System.out.println("Iterating over the list:");
+        for (String item : list) {
+            System.out.println(item);
+        }
+        
+        // Using iterator
+        System.out.println("Using iterator:");
+        Iterator<String> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+        
+        // Using list iterator
+        System.out.println("Using list iterator:");
+        ListIterator<String> listIterator = list.listIterator();
+        while (listIterator.hasNext()) {
+            System.out.println(listIterator.next());
+        }
+    }
+}
+Summary
+LinkedList in Java provides a wide range of methods to add, remove, access, and manipulate the elements it contains.
+ It supports all the operations of the List interface as well as additional operations for double-ended queue (deque) functionality. 
+This makes LinkedList a versatile and powerful data structure in Java.
+
+
+
+
+------------------------------------------------------------------------------------------
+
+ How to Iterate LinkedList in Java?
+
+// Java program for iterating the LinkedList 
+// using Iterator 
+
+import java.util.Iterator; 
+
+// Importing LinkedList class from 
+// java.util package 
+import java.util.LinkedList; 
+
+public class GFG { 
+    public static void main(String[] args) { 
+
+        // Creating a LinkedList of Integer Type 
+        LinkedList<Integer> linkedList = new LinkedList<>(); 
+
+        // Inserting some Integer values to our LinkedList 
+        linkedList.add(15); 
+        linkedList.add(10); 
+        linkedList.add(1); 
+        linkedList.add(40); 
+        linkedList.add(71); 
+
+        // Calling the function to iterate our LinkedList 
+        iterateUsingIterator(linkedList); 
+    } 
+
+    // Function to iterate the Linked List using Iterator 
+    public static void iterateUsingIterator(LinkedList<Integer> linkedList){ 
+
+        System.out.print("Iterating the LinkedList using Iterator : "); 
+
+        // Creating an Iterator to our current LinkedList 
+        Iterator it = linkedList.iterator(); 
+
+        // Inside the while loop we check if the next element 
+        // exists or not if the next element exists then we print 
+        // the next element and move to it otherwise we come out 
+        // of the loop 
+        
+        // hasNext() method return boolean value 
+        // It returns true when the next element 
+        // exists otherwise returns false 
+        while(it.hasNext()){ 
+
+            // next() return the next element in the iteration 
+            System.out.print(it.next() + " "); 
+        } 
+
+    } 
+} 
+
+
+Output
+Iterating the LinkedList using Iterator : 15 10 1 40 71 
+
+
+     // Calling the function to iterate our LinkedList 
+        iterateUsingForLoop(linkedList); 
+    } 
+  
+    // Function to iterate the LinkedList using a simple for 
+    // loop 
+    public static void
+             iterateUsingForLoop(LinkedList<Integer> linkedList) 
+    { 
+  
+        System.out.print( 
+            "Iterating the LinkedList using a simple for loop : "); 
+  
+        for (int i = 0; i < linkedList.size(); i++) { 
+            System.out.print(linkedList.get(i) + " "); 
+        } 
+
+
+
+       // Calling the function to iterate our LinkedList 
+        iterateUsingEnhancedForLoop(linkedList); 
+    } 
+  
+    // Function to display LinkedList using Enhanced for 
+    // loop 
+    public static void iterateUsingEnhancedForLoop(LinkedList<String> linkedList) 
+    { 
+  
+        System.out.print( 
+            "Iterating the LinkedList using enhanced for loop : "); 
+  
+        for (String listElement : linkedList) { 
+            System.out.print(listElement + " "); 
+        } 
+    } 
+
+
+   public static void iterateUsingIterator(LinkedList<Integer> linkedList){ 
+  
+        System.out.print("Iterating the LinkedList using Iterator : "); 
+  
+        // Creating an Iterator to our current LinkedList 
+        Iterator it = linkedList.iterator(); 
+  
+        // Inside the while loop we check if the next element 
+        // exists or not if the next element exists then we print 
+        // the next element and move to it otherwise we come out 
+        // of the loop 
+        
+        // hasNext() method return boolean value 
+          // It returns true when the next element 
+          // exists otherwise returns false 
+        while(it.hasNext()){ 
+  
+            // next() return the next element in the iteration 
+            System.out.print(it.next() + " "); 
+        } 
+  
+    } 
+} 
+
+
+List to Set Conversion in Java
+
+simple
+      // Creating a list of strings 
+        List<String> aList = Arrays.asList("Geeks", "for", 
+                     "GeeksQuiz", "GeeksforGeeks", "GFG"); 
+  
+        Set<String> hSet = new HashSet<String>(); 
+        for (String x : aList) 
+            hSet.add(x); 
+  
+        System.out.println("Created HashSet is"); 
+        for (String x : hSet) 
+            System.out.println(x); 
+  
+        // We can created TreeSet same way \    
+
+
+addall
+      // Creating a list of strings 
+        List<String> aList = Arrays.asList("Geeks", "for", 
+                    "GeeksQuiz", "GeeksforGeeks", "GFG"); 
+  
+        Set<String> hSet = new HashSet<String>(aList); 
+        hSet.addAll(aList); 
+        System.out.println("Created HashSet is"); 
+        for (String x : hSet) 
+            System.out.println(x); 
+  
+        Set<String> tSet = new TreeSet<String>(aList); 
+        tSet.addAll(aList); 
+        System.out.println("Created TreeSet is"); 
+        for (String x : tSet) 
+            System.out.println(x); 
+
+Using HashSet or TreeSet Constructor
+ List<String> aList = Arrays.asList("Geeks", "for", 
+                     "GeeksQuiz", "GeeksforGeeks", "GFG"); 
+  
+        // Creating a hash set using constructor 
+        Set<String> hSet = new HashSet<String>(aList); 
+  
+        System.out.println("Created HashSet is"); 
+        for (String x : hSet) 
+            System.out.println(x); 
+  
+        System.out.println("Created TreeSet is"); 
+        Set<String> tSet = new TreeSet<String>(aList); 
+        System.out.println("Created TreeSet is"); 
+        for (String x : tSet) 
+            System.out.println(x); 
+
+
+Java Program to Convert ArrayList to LinkedList
+
+  public static <T> List<T> convertALtoLL(List<T> aL) 
+    { 
+  
+        // Create an empty LinkedList 
+        List<T> lL = new LinkedList<>(); 
+  
+        // Iterate through the aL 
+        for (T t : aL) { 
+  
+            // Add each element into the lL 
+            lL.add(t); 
+        } 
+  
+        // Return the converted LinkedList 
+        return lL; 
+    } 
+  
+    public static void main(String args[]) 
+    { 
+        // Create an ArrayList 
+        List<String> aL = Arrays.asList("Geeks", 
+                                    "forGeeks", 
+                                    "A computer Portal"); 
+  
+        // Print the ArrayList 
+        System.out.println("ArrayList: " + aL); 
+  
+        // convert the ArrayList to LinkedList 
+        List<String> 
+            lL = convertALtoLL(aL); 
+  
+        // Print the LinkedList 
+        System.out.println("LinkedList: " + lL); 
+    } 
+} 
+
+
+using constructor
+
+  public static <T> List<T> convertALtoLL(List<T> aL) 
+    { 
+  
+        // Create the LinkedList by passing the ArrayList 
+        // as parameter in the constructor 
+        List<T> lL = new LinkedList<>(aL); 
+  
+        // Return the converted LinkedList 
+        return lL; 
+    } 
+  
+    public static void main(String args[]) 
+    { 
+        // Create an ArrayList 
+        List<String> aL = Arrays.asList("Geeks", 
+                                    "forGeeks", 
+                                    "A computer Portal"); 
+  
+        // Print the ArrayList 
+        System.out.println("ArrayList: " + aL); 
+  
+        // convert the ArrayList to LinkedList 
+        List<String> 
+            lL = convertALtoLL(aL); 
+  
+        // Print the LinkedList 
+        System.out.println("LinkedList: " + lL); 
+    } 
+} 
+
+Convert Array to LinkedList in Java
+
+
+   public static void main(String[] args)
+    {
+ 
+        // Create a string Array
+        String[] strArr = { "A", "B", "C", "D", "E" };
+ 
+        // Convert array to list
+        List<String> list = Arrays.asList(strArr);
+ 
+        // Create a LinkedList and
+        // pass List in LinkedList constructor
+        LinkedList<String> linkedList
+            = new LinkedList<String>(list);
+ 
+        // Display and print all elements of LinkedList
+        System.out.println("LinkedList of above array : "
+                           + linkedList);
+    }
+}
+
+
+
+
+      // Create an Array
+        // here string type
+        String[] strArr = { "G", "E", "E", "K", "S" };
+ 
+        // Create an empty LinkedList
+        LinkedList<String> linkedList
+            = new LinkedList<String>();
+ 
+        // Append all elements of array to linked list
+        // using Collections.addAll() method
+        Collections.addAll(linkedList, strArr);
+ 
+        // Print the above LinkedList received
+        System.out.println("Converted LinkedList : "+linkedList);
+    }
+}
+
+
+

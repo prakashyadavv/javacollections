@@ -1,0 +1,235 @@
+STRING
+
+In Java, the String class provides a rich set of methods for manipulating strings. Here are some commonly used methods of the String class:
+
+Basic Methods
+length(): Returns the length of this string.
+
+java
+Copy code
+String str = "Hello";
+int length = str.length(); // length is 5
+charAt(int index): Returns the char value at the specified index.
+
+java
+Copy code
+char ch = str.charAt(1); // ch is 'e'
+substring(int beginIndex): Returns a substring of this string starting from the specified index.
+
+java
+Copy code
+String substr = str.substring(2); // substr is "llo"
+substring(int beginIndex, int endIndex): Returns a substring of this string starting from beginIndex to endIndex-1.
+
+java
+Copy code
+String substr = str.substring(1, 4); // substr is "ell"
+concat(String str): Concatenates the specified string to the end of this string.
+
+java
+Copy code
+String newStr = str.concat(" World"); // newStr is "Hello World"
+indexOf(String str): Returns the index within this string of the first occurrence of the specified substring.
+
+java
+Copy code
+int index = str.indexOf("l"); // index is 2
+lastIndexOf(String str): Returns the index within this string of the last occurrence of the specified substring.
+
+java
+Copy code
+int lastIndex = str.lastIndexOf("l"); // lastIndex is 3
+startsWith(String prefix): Tests if this string starts with the specified prefix.
+
+java
+Copy code
+boolean startsWith = str.startsWith("He"); // true
+endsWith(String suffix): Tests if this string ends with the specified suffix.
+
+java
+Copy code
+boolean endsWith = str.endsWith("lo"); // true
+toLowerCase(): Converts all of the characters in this String to lower case.
+
+java
+Copy code
+String lowerCaseStr = str.toLowerCase(); // "hello"
+toUpperCase(): Converts all of the characters in this String to upper case.
+
+java
+Copy code
+String upperCaseStr = str.toUpperCase(); // "HELLO"
+trim(): Returns a copy of the string, with leading and trailing whitespace removed.
+
+java
+Copy code
+String trimmedStr = "  Hello  ".trim(); // "Hello"
+Example Usage
+Here's a complete example demonstrating some of these methods:
+
+java
+Copy code
+public class StringExample {
+    public static void main(String[] args) {
+        String str = "Hello";
+        
+        // Length of the string
+        int length = str.length();
+        System.out.println("Length of the string: " + length);
+        
+        // Character at index
+        char ch = str.charAt(1);
+        System.out.println("Character at index 1: " + ch);
+        
+        // Substring from index
+        String substr = str.substring(2);
+        System.out.println("Substring from index 2: " + substr);
+        
+        // Concatenation
+        String newStr = str.concat(" World");
+        System.out.println("Concatenated string: " + newStr);
+        
+        // Index of character
+        int index = str.indexOf("l");
+        System.out.println("Index of 'l': " + index);
+        
+        // Conversion to lower case
+        String lowerCaseStr = str.toLowerCase();
+        System.out.println("Lower case string: " + lowerCaseStr);
+        
+        // Conversion to upper case
+        String upperCaseStr = str.toUpperCase();
+        System.out.println("Upper case string: " + upperCaseStr);
+        
+        // Checking prefix and suffix
+        boolean startsWith = str.startsWith("He");
+        boolean endsWith = str.endsWith("lo");
+        System.out.println("Starts with 'He': " + startsWith);
+        System.out.println("Ends with 'lo': " + endsWith);
+        
+        // Trimming whitespace
+        String trimmedStr = "  Hello  ".trim();
+        System.out.println("Trimmed string: '" + trimmedStr + "'");
+    }
+}
+Summary
+The String class in Java provides essential methods for manipulating strings, including substring operations, case conversions, concatenation, searching for substrings, and more. These methods enable efficient string handling and manipulation in Java applications.
+
+
+
+
+
+
+	
+
+
+STRINGBUILDER
+
+The StringBuilder class in Java provides an efficient way to manipulate strings where mutable (modifiable) strings are needed. It belongs to the java.lang package and offers several methods for appending, inserting, deleting, and modifying strings. Here are some commonly used methods of the StringBuilder class:
+
+Basic Methods
+append(String str): Appends the specified string to the end of this StringBuilder.
+
+java
+Copy code
+StringBuilder sb = new StringBuilder();
+sb.append("Hello");
+sb.append(" World");
+insert(int offset, String str): Inserts the specified string into this StringBuilder at the specified position.
+
+java
+Copy code
+sb.insert(5, "Beautiful ");
+// sb is now "Hello Beautiful World"
+delete(int start, int end): Removes the characters in a substring of this StringBuilder.
+
+java
+Copy code
+sb.delete(6, 17);
+// sb is now "Hello World"
+deleteCharAt(int index): Removes the character at the specified position in this StringBuilder.
+
+java
+Copy code
+sb.deleteCharAt(5);
+// sb is now "HelloWorld"
+replace(int start, int end, String str): Replaces the characters in a substring of this StringBuilder with characters in the specified string.
+
+java
+Copy code
+sb.replace(5, 12, "my");
+// sb is now "Hello my World"
+substring(int start) and substring(int start, int end): Returns a new String that contains a subsequence of characters currently contained in this StringBuilder.
+
+java
+Copy code
+String sub = sb.substring(6);
+// sub is "my World"
+String sub2 = sb.substring(6, 9);
+// sub2 is "my "
+Additional Methods
+length(): Returns the length (character count) of the content in the StringBuilder.
+
+java
+Copy code
+int len = sb.length(); // len is 14
+capacity(): Returns the current capacity of the StringBuilder.
+
+java
+Copy code
+int cap = sb.capacity(); // capacity is at least 16
+reverse(): Reverses the sequence of characters in this StringBuilder.
+
+java
+Copy code
+sb.reverse(); // sb is now "dlroW ym olleH"
+toString(): Converts the StringBuilder to a String.
+
+java
+Copy code
+String str = sb.toString(); // str is "Hello my World"
+Example Usage
+Here's a complete example demonstrating some of these methods:
+
+java
+Copy code
+public class StringBuilderExample {
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder();
+        
+        // Append
+        sb.append("Hello");
+        sb.append(" World");
+        System.out.println("Appended: " + sb.toString());
+        
+        // Insert
+        sb.insert(5, "Beautiful ");
+        System.out.println("Inserted: " + sb.toString());
+        
+        // Delete
+        sb.delete(6, 17);
+        System.out.println("Deleted: " + sb.toString());
+        
+        // Replace
+        sb.replace(5, 12, "my");
+        System.out.println("Replaced: " + sb.toString());
+        
+        // Substring
+        String sub = sb.substring(6);
+        System.out.println("Substring from index 6: " + sub);
+        
+        String sub2 = sb.substring(6, 9);
+        System.out.println("Substring from index 6 to 9: " + sub2);
+        
+        // Length and capacity
+        int len = sb.length();
+        int cap = sb.capacity();
+        System.out.println("Length: " + len + ", Capacity: " + cap);
+        
+        // Reverse
+        sb.reverse();
+        System.out.println("Reversed: " + sb.toString());
+    }
+}
+Summary
+The StringBuilder class in Java provides mutable sequences of characters. It allows efficient string manipulation operations such as appending, inserting, deleting, replacing, and substring extraction. This makes StringBuilder useful for scenarios where frequent modifications to strings are required without the overhead of creating new String objects each time.

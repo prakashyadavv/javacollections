@@ -1,0 +1,112 @@
+Java has a rich set of data types, categorized into two main types: primitive data types and reference data types.
+
+1. Primitive Data Types
+Java defines eight primitive data types, which are predefined by the language and named by a keyword. These types serve as the building blocks for data manipulation.
+
+a. Integer Types
+byte: 8-bit signed integer. Range: -128 to 127.
+
+java
+Copy code
+byte b = 100;
+short: 16-bit signed integer. Range: -32,768 to 32,767.
+
+java
+Copy code
+short s = 10000;
+int: 32-bit signed integer. Range: -2^31 to 2^31-1.
+
+java
+Copy code
+int i = 100000;
+long: 64-bit signed integer. Range: -2^63 to 2^63-1.
+
+java
+Copy code
+long l = 100000L;
+b. Floating-Point Types
+float: 32-bit IEEE 754 floating-point.
+
+java
+Copy code
+float f = 234.5f;
+double: 64-bit IEEE 754 floating-point.
+
+java
+Copy code
+double d = 123.4;
+c. Character Type
+char: 16-bit Unicode character.
+java
+Copy code
+char c = 'A';
+d. Boolean Type
+boolean: Represents one bit of information. There are only two possible values: true and false.
+java
+Copy code
+boolean bool = true;
+2. Reference Data Types
+Reference data types refer to objects and arrays. They are created using constructors of classes. There are several reference data types, including:
+
+Classes:
+
+java
+Copy code
+String str = "Hello, World!";
+Arrays: Arrays can hold multiple values of the same type.
+
+java
+Copy code
+int[] arr = {1, 2, 3, 4, 5};
+Interfaces: Interfaces are abstract types that allow the creation of methods that must be implemented by classes.
+
+java
+Copy code
+interface MyInterface {
+    void myMethod();
+}
+Enums: Enumerations are a special class type that represents a group of constants.
+
+java
+Copy code
+enum Day {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+}
+Example of Using Different Data Types
+Here's an example illustrating the use of various data types in Java:
+
+java
+Copy code
+public class Main {
+    public static void main(String[] args) {
+        // Primitive Data Types
+        byte byteVar = 100;
+        short shortVar = 10000;
+        int intVar = 100000;
+        long longVar = 100000L;
+        float floatVar = 234.5f;
+        double doubleVar = 123.4;
+        char charVar = 'A';
+        boolean booleanVar = true;
+
+        // Reference Data Types
+        String stringVar = "Hello, World!";
+        int[] intArray = {1, 2, 3, 4, 5};
+
+        // Output
+        System.out.println("byte: " + byteVar);
+        System.out.println("short: " + shortVar);
+        System.out.println("int: " + intVar);
+        System.out.println("long: " + longVar);
+        System.out.println("float: " + floatVar);
+        System.out.println("double: " + doubleVar);
+        System.out.println("char: " + charVar);
+        System.out.println("boolean: " + booleanVar);
+        System.out.println("String: " + stringVar);
+        System.out.print("Array: ");
+        for (int i : intArray) {
+            System.out.print(i + " ");
+        }
+    }
+}
+This example demonstrates the declaration and use of various primitive and reference data types in Java.

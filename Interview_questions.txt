@@ -1,0 +1,76 @@
+1. What are Java Collections?
+
+A framework that provides architecture to store and manipulate a group of objects.
+Includes interfaces, implementations (classes), and algorithms.
+Key interfaces: Collection, Set, List, Queue, Map.
+
+2. Difference between List, Set, and Map?
+
+List: Ordered collection. Allows duplicates. Implements List interface (e.g., ArrayList, LinkedList).
+Set: Unordered collection. No duplicates. Implements Set interface (e.g., HashSet, TreeSet).
+Map: Key-value pairs. No duplicate keys. Implements Map interface (e.g., HashMap, TreeMap).
+
+3. Difference between ArrayList and LinkedList?
+
+ArrayList:
+Backed by a dynamic array.
+Allows fast random access.
+Slow at insertions/deletions (except at the end).
+Better for read-heavy operations.
+LinkedList:
+Backed by a doubly linked list.
+No random access; access time is O(n).
+Faster insertions/deletions (even in the middle).
+Better for write-heavy operations.
+
+4. Difference between HashMap and TreeMap?
+
+HashMap:
+Unordered, no guarantees of order.
+Allows null keys and values.
+Average O(1) time complexity for get/put operations.
+TreeMap:
+Sorted by natural order or custom comparator.
+Does not allow null keys (allows null values).
+O(log n) time complexity for get/put operations.
+
+5. What is a HashSet and how does it work?
+
+Implements Set interface backed by a HashMap.
+No duplicates allowed.
+Uses hashing for storing elements.
+Offers constant-time performance for basic operations like add, remove, and contains.
+
+6. What is the difference between Iterator and ListIterator?
+
+Iterator:
+Can traverse a collection only in forward direction.
+Methods: hasNext(), next(), remove().
+ListIterator:
+Can traverse a list in both forward and backward directions.
+Methods: hasNext(), next(), hasPrevious(), previous(), add(), set(), remove().
+
+7. What are Concurrent Collections?
+
+Designed for use in multi-threaded environments.
+Common classes: ConcurrentHashMap, CopyOnWriteArrayList, ConcurrentLinkedQueue.
+Provide thread-safe operations without the need for explicit synchronization.
+
+8. What is the difference between Comparable and Comparator?
+
+Comparable:
+Interface used to define natural ordering.
+Method: compareTo().
+Example: class Student implements Comparable<Student> { public int compareTo(Student s) { ... } }.
+Comparator:
+Interface used for custom ordering.
+Method: compare().
+Example: Comparator<Student> byAge = new Comparator<Student>() { public int compare(Student s1, Student s2) { ... } }.
+
+9. What is the purpose of the Collections utility class?
+
+Provides static methods for collection operations.
+Common methods: sort(), reverse(), shuffle(), binarySearch(), synchronizedCollection(), unmodifiableCollection().
+These points should help you provide concise and accurate answers during interviews on Java Collections. Feel free to ask if you need more details on any specific topic!
+
+
